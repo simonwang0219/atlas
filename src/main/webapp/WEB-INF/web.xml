@@ -73,6 +73,7 @@
 
     <!-- 添加shiro过滤器 -->
     <filter>
+        <description>shiro 权限拦截</description>
         <filter-name>shiroFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
         <init-param>

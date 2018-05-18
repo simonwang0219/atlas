@@ -16,7 +16,7 @@
            <property name="cacheManager" ref="shiroCacheManager" />-->
     </bean>
 
-    <!--shiro安全认证过滤器-->
+    <!-- shiro安全认证过滤器，此bean要被web.xml引用 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager" />
@@ -28,6 +28,7 @@
             <value>
                 /login=anon
                 /user/index=anon
+                /user/test1=authc
                 /user/admin*=authc
                 /user/student*/**=roles[teacher]
                 /user/teacher*/**=perms["user:create"]
@@ -35,7 +36,7 @@
         </property>
     </bean>
 
-    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <!-- 配置 Bean 后置处理器: 会自动的调用和 Spring 整合后各个组件的生命周期方法. -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
     <!-- 开启Shiro注解 -->

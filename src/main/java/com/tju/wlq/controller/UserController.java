@@ -7,6 +7,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -60,6 +61,12 @@ public class UserController {
         return "success";
     }
 
+    @RequestMapping("/test1")
+    public String test(User user, Model model) {
+        model.addAttribute("successMsg", "登录成功");
+        model.addAttribute("name", user.getUsername());
+        return "test1";
+    }
 
 
 
