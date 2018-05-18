@@ -1,0 +1,13 @@
+/.settings
+/target
+/.classpath
+/.project
+.idea/
+*.iml
+META-INF/
+out/
+.DS_Store
+clear.bat
+eclipse.bat
+package.bat
+/bin/
